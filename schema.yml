@@ -1,0 +1,70 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "0.0.0"
+  title: PING
+
+produces:
+  - application/json
+  - text/plain
+
+# Describe your paths here
+paths:
+  # This is a path endpoint. Change it.
+  /ping:
+    # This is a HTTP operation
+    get:
+      operationId: PING
+      tags:
+        - bot
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Verifies the service is up and running.
+      responses:
+        # Response code
+        200:
+          description: Successful Ping
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: PONG
+            type: object
+            properties:
+              message:
+                type: string
+  /sayHello:
+    # This is a HTTP operation
+    get:
+      operationId: sayHello
+      tags:
+        - bot
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Says hello to the follow user.
+      parameters:
+        - name: 'name'
+          in: 'query'
+          type: string
+          required: false
+  /add:
+    # This is a HTTP operation
+    get:
+      operationId: add
+      tags:
+        - bot
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Adds Two Numbers.
+      parameters:
+        - name: 'a'
+          in: 'query'
+          type: int
+          required: false
+        - name: 'b'
+          in: 'query'
+          type: int
+          required: false
